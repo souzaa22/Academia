@@ -1,0 +1,1074 @@
+/* ========================================================================== 
+   1. VARIÁVEIS GLOBAIS E DESIGN SYSTEM (DARK CYBER-FITNESS)
+   ========================================================================== */
+:root {
+    --bg-dark: #0b0e14;
+    --bg-card: rgba(20, 26, 38, 0.65);
+    --bg-card-hover: rgba(28, 36, 52, 0.85);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glow: rgba(114, 229, 255, 0.38);
+    
+    --neon-green: #72e5ff;
+    --neon-green-hover: #42c9eb;
+    --neon-pink: #ff3366;
+    --neon-purple: #7000ff;
+    --neon-cyan: #00e5ff;
+    
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-dark: #020617;
+    
+    --font-title: 'Syne', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+    
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================================================== 
+   2. RESET E ESTILOS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Fundo Animado de Grade Futurista */
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: -1;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.orb-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--neon-purple); }
+.orb-2 { bottom: -10%; right: -10%; width: 600px; height: 600px; background: var(--neon-green); }
+
+/* ========================================================================== 
+   3. CABEÇALHO / NAVBAR
+   ========================================================================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(11, 14, 20, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--neon-green);
+    text-shadow: 0 0 12px rgba(114, 229, 255, 0.7);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--neon-green);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+/* ========================================================================== 
+   4. BOTÕES CUSTOMIZADOS
+   ========================================================================== */
+.btn {
+    padding: 0.75rem 1.6rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--neon-green);
+    outline-offset: 2px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-glass);
+}
+
+.btn-outline:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: 0 0 15px rgba(114, 229, 255, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-green-hover));
+    color: var(--text-dark);
+    box-shadow: 0 0 20px rgba(114, 229, 255, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(114, 229, 255, 0.7);
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.btn-hero {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* ========================================================================== 
+   5. SEÇÃO HERO (APRESENTAÇÃO)
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    padding: 140px 5% 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.badge-tag {
+    padding: 0.4rem 1.2rem;
+    background: rgba(112, 0, 255, 0.15);
+    border: 1px solid rgba(112, 0, 255, 0.4);
+    border-radius: 50px;
+    color: var(--neon-cyan);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+}
+
+.hero h1 .gradient-text {
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    max-width: 680px;
+    margin-bottom: 2.5rem;
+}
+
+.hero-cta-wrapper {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Dashboard Mockup de Exibição */
+.mockup-container {
+    width: 100%;
+    max-width: 1100px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    margin-top: 2.5rem;
+}
+
+.mockup-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #72e5ff; }
+
+.mockup-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card-preview {
+    background: rgba(11, 14, 20, 0.6);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.card-preview-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.stat-number {
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+}
+
+.stat-unit {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.stat-meta {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.card-highlight {
+    border-color: rgba(112, 0, 255, 0.4);
+}
+
+.highlight-title {
+    color: var(--neon-cyan);
+    font-weight: 700;
+}
+
+.insight-text {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+/* ========================================================================== 
+   6. SEÇÃO DE RECURSOS E RECURSOS CHAVE (GRID)
+   ========================================================================== */
+.features-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+}
+
+.grid-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-glow);
+    box-shadow: 0 10px 30px rgba(114, 229, 255, 0.1);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.feature-description {
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Ícone Utilities */
+.icon-pink { color: var(--neon-pink); }
+.icon-green { color: var(--neon-green); }
+.icon-cyan { color: var(--neon-cyan); }
+.text-green { color: var(--neon-green); }
+
+.icon-bg-green { background: rgba(114, 229, 255, 0.12); color: var(--neon-green); }
+.icon-bg-pink { background: rgba(255, 51, 102, 0.1); color: var(--neon-pink); }
+.icon-bg-cyan { background: rgba(0, 229, 255, 0.1); color: var(--neon-cyan); }
+
+/* ========================================================================
+   7. TELAS DE AUTENTICAÇÃO
+   ======================================================================== */
+.auth-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth-back {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-back:hover {
+    color: var(--neon-green);
+}
+
+.auth-page {
+    min-height: 100vh;
+    padding: 6rem 1rem 2rem;
+    display: grid;
+    place-items: center;
+}
+
+.auth-container {
+    background: #141a26;
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    width: min(100%, 440px);
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+.modal-title {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--text-muted);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper > i {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.toggle-password:hover {
+    color: var(--neon-green);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem 2.8rem 0.8rem 2.8rem;
+    background: rgba(11, 14, 20, 0.8);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
+}
+
+.error-message {
+    color: var(--neon-pink);
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    display: none;
+}
+
+.success-message {
+    color: var(--neon-green);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    color: var(--neon-green);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: inherit;
+    padding: 0;
+    text-decoration: none;
+}
+
+.link-btn:hover {
+    text-decoration: underline;
+}
+
+/* TOAST NOTIFICAÇÃO */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #141a26;
+    border: 1px solid var(--neon-green);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(150%);
+    transition: var(--transition);
+    z-index: 2000;
+}
+
+.toast.show { transform: translateY(0); }
+.toast-icon { color: var(--neon-green); }
+
+/* ========================================================================== 
+   8. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(11, 14, 20, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 2rem;
+        gap: 2rem;
+        border-bottom: 1px solid var(--border-glass);
+        display: none;
+    }
+
+    .nav-container.active {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .auth-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .toast {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
+/* ==========================================================================
+   1. VARIÁVEIS GLOBRAIS E DESIGN SYSTEM (DARK CYBER-FITNESS)
+   ========================================================================== */
+:root {
+    --bg-dark: #0b0e14;
+    --bg-card: rgba(20, 26, 38, 0.65);
+    --bg-card-hover: rgba(28, 36, 52, 0.85);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glow: rgba(114, 229, 255, 0.38);
+    
+    --neon-green: #72e5ff;
+    --neon-pink: #ff3366;
+    --neon-purple: #7000ff;
+    --neon-cyan: #00e5ff;
+    
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-dark: #020617;
+    
+    --font-title: 'Syne', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+    
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   2. RESET E ESTILOS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Fundo Animado de Grade Futurista */
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+}
+
+.glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: -1;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.orb-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--neon-purple); }
+.orb-2 { bottom: -10%; right: -10%; width: 600px; height: 600px; background: var(--neon-green); }
+
+/* ==========================================================================
+   3. CABEÇALHO / NAVBAR
+   ========================================================================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(11, 14, 20, 0.75);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--neon-green);
+    text-shadow: 0 0 12px rgba(114, 229, 255, 0.7);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--neon-green);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ==========================================================================
+   4. BOTÕES CUSTOMIZADOS
+   ========================================================================== */
+.btn {
+    padding: 0.75rem 1.6rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-glass);
+}
+
+.btn-outline:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: 0 0 15px rgba(114, 229, 255, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--neon-green), #42c9eb);
+    color: var(--text-dark);
+    box-shadow: 0 0 20px rgba(114, 229, 255, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(114, 229, 255, 0.7);
+}
+
+/* ==========================================================================
+   5. SEÇÃO HERO (APRESENTAÇÃO)
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    padding: 140px 5% 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.badge-tag {
+    padding: 0.4rem 1.2rem;
+    background: rgba(112, 0, 255, 0.15);
+    border: 1px solid rgba(112, 0, 255, 0.4);
+    border-radius: 50px;
+    color: var(--neon-cyan);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+}
+
+.hero h1 .gradient-text {
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    max-width: 680px;
+    margin-bottom: 2.5rem;
+}
+
+/* Dashboard Mockup de Exibição */
+.mockup-container {
+    width: 100%;
+    max-width: 1100px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    margin-top: 2rem;
+    position: relative;
+}
+
+.mockup-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; }
+.dot:nth-child(2) { background: #ffbd2e; }
+.dot:nth-child(3) { background: #72e5ff; }
+
+.mockup-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card-preview {
+    background: rgba(11, 14, 20, 0.6);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+/* ==========================================================================
+   6. SEÇÃO DE RECURSOS E RECURSOS CHAVE (GRID)
+   ========================================================================== */
+.features-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.grid-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(16px);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-glow);
+    box-shadow: 0 10px 30px rgba(114, 229, 255, 0.1);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(114, 229, 255, 0.12);
+    color: var(--neon-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   7. MODAIS DE AUTENTICAÇÃO (LOGIN / CADASTRO)
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-container {
+    background: #141a26;
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 440px;
+    padding: 2.5rem;
+    position: relative;
+    transform: scale(0.9);
+    transition: var(--transition);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover { color: var(--neon-pink); }
+
+.modal-title {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--text-muted);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.8rem;
+    background: rgba(11, 14, 20, 0.8);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
+}
+
+.error-message {
+    color: var(--neon-pink);
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    display: none;
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.switch-auth a {
+    color: var(--neon-green);
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* TOAST NOTIFICAÇÃO */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #141a26;
+    border: 1px solid var(--neon-green);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(150%);
+    transition: var(--transition);
+    z-index: 2000;
+}
+
+.toast.show { transform: translateY(0); }

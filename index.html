@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Fit | Plataforma de Treino e Dieta</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Firebase SDK (Inclusão dos pacotes necessários antes da configuração) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    
+    <!-- Configuração do Firebase -->
+    <script src="firebase-config.js"></script>
+
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+    <div class="cyber-grid"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- NAVBAR -->
+    <header>
+        <a href="#" class="logo bodyfit-brand" aria-label="Body Fit"><span class="bodyfit-logo-frame"><img class="bodyfit-logo" src="img/bodyfit2-removebg-preview.png" alt="Body Fit"></span></a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
+            <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="nav-container" id="navContainer">
+            <ul class="nav-links">
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#insights">Painel de Insights</a></li>
+                <li><a href="#diferencial">Diferencial</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" id="openLoginBtn">Entrar</button>
+                <button class="btn btn-primary" id="openRegisterBtn">Criar Conta</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN LANDING PAGE HERO -->
+    <main>
+        <section class="hero">
+            <div class="badge-tag">
+                <i data-lucide="sparkles"></i> O Fim das Plataformas Isoladas
+            </div>
+            <h1>Treino e Alimentação <span class="gradient-text">Conectados em Tempo Real</span></h1>
+            <p>Mais do que registrar calorias e séries. Nossa plataforma cruza os dados das suas execuções com seu consumo nutricional para gerar métricas de performance imbatíveis.</p>
+            
+            <div class="hero-cta-wrapper">
+                <button class="btn btn-primary btn-hero" id="heroStartBtn">
+                    Começar Agora <i data-lucide="arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- DEMO MOCKUP -->
+            <div class="mockup-container" id="insights">
+                <div class="mockup-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="mockup-body">
+                    <div class="card-preview">
+                        <div class="card-preview-header">
+                            <span>Balanço Diário</span>
+                            <i data-lucide="flame" class="icon-pink"></i>
+                        </div>
+                        <h3 class="stat-number">1.850 / 2.200 <span class="stat-unit">kcal</span></h3>
+                        <p class="stat-meta text-green">+ 350 kcal compensadas pelo treino de hoje</p>
+                    </div>
+
+                    <div class="card-preview">
+                        <div class="card-preview-header">
+                            <span>Volume de Treino</span>
+                            <i data-lucide="trending-up" class="icon-green"></i>
+                        </div>
+                        <h3 class="stat-number">12.450 <span class="stat-unit">kg</span></h3>
+                        <p class="stat-meta text-green">↑ 8.5% de progresso vs. semana passada</p>
+                    </div>
+
+                    <div class="card-preview card-highlight">
+                        <div class="card-preview-header">
+                            <span class="highlight-title">INSIGHT CROSS-DATA</span>
+                            <i data-lucide="brain-circuit" class="icon-cyan"></i>
+                        </div>
+                        <p class="insight-text">"Seus dias de maior volume de treino coincidem com semanas de perda de peso acelerada em 1.2kg."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECURSOS -->
+        <section class="features-section" id="recursos">
+            <div class="section-header">
+                <h2>Tecnologia Integrada de Elite</h2>
+                <p class="section-subtitle">Projetado para entregar alta performance sem complicação.</p>
+            </div>
+            <div class="grid-features">
+                <div class="feature-card">
+                    <div class="feature-icon icon-bg-green"><i data-lucide="dumbbell"></i></div>
+                    <h3>Progressão Numérica Inteligente</h3>
+                    <p class="feature-description">
+                        Cálculo dinâmico de volume de treino (Carga x Reps x Séries) indicando automaticamente progresso, estagnação ou regressão.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-bg-pink"><i data-lucide="utensils"></i></div>
+                    <h3>Balanço Calórico Reativo</h3>
+                    <p class="feature-description">
+                        As calorias gastas no treino alteram automaticamente a sua margem de alimentação diária em tempo real.
+                    </p>
+                </div>
+                <div class="feature-card" id="diferencial">
+                    <div class="feature-icon icon-bg-cyan"><i data-lucide="cpu"></i></div>
+                    <h3>Painel de Insights Avançado</h3>
+                    <p class="feature-description">
+                        Algoritmo proprietário que cruza variáveis do histórico de treino e dieta para gerar relatórios preditivos reais.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="photo-story" aria-labelledby="photoStoryTitle">
+            <div class="photo-story-head">
+                <div><p class="photo-story-kicker">BODY FIT / NA PRÁTICA</p><h2 id="photoStoryTitle">Movimento, força<br>e constância.</h2></div>
+                <p class="photo-story-copy">Cada etapa da rotina tem seu lugar: preparação, treino e recuperação. Um espaço para acompanhar tudo de perto.</p>
+            </div>
+            <div class="photo-mosaic">
+                <figure class="photo-tile photo-tile-feature"><img src="img/4.jpg" alt="Atleta empurrando um trenó durante um treino de potência" loading="lazy"><figcaption><span>Condicionamento</span><span>01</span></figcaption></figure>
+                <figure class="photo-tile"><img src="img/6.jpg" alt="Estrutura de musculação e barra na academia" loading="lazy"><figcaption><span>Estrutura</span><span>02</span></figcaption></figure>
+                <figure class="photo-tile"><img src="img/transferir.jpg" alt="Atleta treinando em uma máquina de musculação" loading="lazy"><figcaption><span>Controle</span><span>03</span></figcaption></figure>
+                <figure class="photo-tile"><img src="img/1.jpg" alt="Halteres e acessórios organizados sobre piso de grama sintética" loading="lazy"><figcaption><span>Preparação</span><span>04</span></figcaption></figure>
+                <figure class="photo-tile"><img src="img/5.jpg" alt="Atleta preparando as mãos com magnésio antes de levantar peso" loading="lazy"><figcaption><span>Força</span><span>05</span></figcaption></figure>
+                <figure class="photo-tile"><img src="img/Fitness Blogger Goes a Year Without Shaving to Embrace Natural Beauty.jpg" alt="Atleta executando agachamento com halter" loading="lazy"><figcaption><span>Técnica</span><span>06</span></figcaption></figure>
+                <figure class="photo-tile"><img src="img/3.jpg" alt="Barra e garrafa de água ao lado de pesos" loading="lazy"><figcaption><span>Recuperação</span><span>07</span></figcaption></figure>
+                <figure class="photo-tile photo-tile-wide"><img src="img/2.jpg" alt="Halter e faixa de treino sobre um colchonete" loading="lazy"><figcaption><span>Foco no treino</span><span>08</span></figcaption></figure>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL AUTH (LOGIN E CADASTRO) -->
+    <div class="modal-overlay" id="authModal" aria-hidden="true" role="dialog">
+        <div class="modal-container">
+            <button class="close-modal" id="closeModalBtn" aria-label="Fechar Modal"><i data-lucide="x"></i></button>
+
+            <!-- FORMULÁRIO DE LOGIN -->
+            <form id="loginForm" class="auth-form" action="#" onsubmit="return false;" novalidate>
+                <h3 class="modal-title">Acessar Plataforma</h3>
+                <p class="modal-subtitle">Entre com suas credenciais para continuar.</p>
+
+                <div class="form-group">
+                    <label for="loginEmail">E-mail</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="mail"></i>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Senha</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="lock"></i>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" data-target="loginPassword" aria-label="Mostrar/Ocultar Senha">
+                            <i data-lucide="eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="error-message" id="loginError" style="display: none;">E-mail ou senha inválidos.</div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Entrar na Conta
+                </button>
+
+                <p class="switch-auth">Ainda não tem conta? <button type="button" id="goToRegister" class="link-btn">Cadastre-se</button></p>
+            </form>
+
+            <!-- FORMULÁRIO DE CADASTRO -->
+            <form id="registerForm" class="auth-form" action="#" onsubmit="return false;" style="display: none;" novalidate>
+                <h3 class="modal-title">Criar Nova Conta</h3>
+                <p class="modal-subtitle">Comece a integrar seus treinos e dieta hoje.</p>
+
+                <div class="form-group">
+                    <label for="regName">Nome Completo</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="user"></i>
+                        <input type="text" id="regName" class="form-input" placeholder="Seu nome" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regEmail">E-mail</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="mail"></i>
+                        <input type="email" id="regEmail" class="form-input" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPassword">Senha</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="lock"></i>
+                        <input type="password" id="regPassword" class="form-input" placeholder="••••••••" required minlength="6">
+                        <button type="button" class="toggle-password" data-target="regPassword" aria-label="Mostrar/Ocultar Senha">
+                            <i data-lucide="eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="error-message" id="regError" style="display: none;">Este e-mail já está cadastrado.</div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Cadastrar e Configurar Perfil
+                </button>
+
+                <p class="switch-auth">Já possui conta? <button type="button" id="goToLogin" class="link-btn">Fazer Login</button></p>
+            </form>
+            <a href="demo.html" class="btn btn-outline demo-entry" id="demoEntryBtn" style="text-decoration: none; text-align: center; display: block;">Explorar demonstração</a>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICAÇÃO -->
+    <div class="toast" id="toast" role="alert" aria-live="assertive">
+        <i data-lucide="check-circle" class="toast-icon"></i>
+        <span id="toastMsg">Conta criada com sucesso! Redirecionando...</span>
+    </div>
+
+    <!-- JavaScript Externo -->
+    <script src="index.js"></script>
+</body>
+</html>

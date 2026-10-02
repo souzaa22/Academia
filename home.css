@@ -1,0 +1,6 @@
+.overview-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 15px; margin-top: 15px; }
+.insight-card { position: relative; overflow: hidden; min-height: 150px; padding: 22px; border: 1px solid var(--border-glow); border-radius: 8px; color: var(--text-main); background: linear-gradient(120deg, #122d3a, #101c25 70%); }
+.insight-card:after { position: absolute; content: ''; width: 145px; height: 145px; right: -35px; bottom: -78px; border: 1px solid rgba(114,229,255,.32); border-radius: 50%; box-shadow: 0 0 0 22px rgba(114,229,255,.07), 0 0 0 47px rgba(114,229,255,.04); }
+.insight-kicker { color: var(--neon-green); font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+.insight-text { position: relative; z-index: 1; max-width: 490px; margin: 12px 0 0; color: var(--text-main); font: 500 17px/1.5 'Space Grotesk', sans-serif; }
+@media (max-width: 1050px) { .overview-grid { grid-template-columns: 1fr; } }

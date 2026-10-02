@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACKTOON - Planos & Metas</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Arquivos de Estilo Locais -->
+    <link rel="stylesheet" href="cyber-theme.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="planos.css">
+</head>
+<body>
+
+    <!-- SIDEBAR LATERAL NATIVA DA APLICAÇÃO -->
+    <aside class="sidebar">
+        <a href="home.html" class="sidebar-logo" aria-label="Body Fit">
+            <img class="bodyfit-nav-logo" src="img/bodyfit-removebg-preview.png" alt="Body Fit">
+        </a>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="home.html">
+                    <i data-lucide="home"></i> <span>Visão geral</span>
+                </a>
+            </li>
+            <li>
+                <a href="treinos.html">
+                    <i data-lucide="dumbbell"></i> <span>Treinos</span>
+                </a>
+            </li>
+            <li>
+                <a href="alimentacao.html">
+                    <i data-lucide="utensils"></i> <span>Alimentação</span>
+                </a>
+            </li>
+            <li>
+                <a href="planos.html" class="active">
+                    <i data-lucide="target"></i> <span>Planos</span>
+                </a>
+            </li>
+            <li>
+                <a href="ia-coach.html">
+                    <i data-lucide="bot"></i> <span>IA Coach</span>
+                </a>
+            </li>
+            <li>
+                <a href="evolucao.html">
+                    <i data-lucide="trending-up"></i> <span>Evolução</span>
+                </a>
+            </li>
+            <li>
+                <a href="perfil.html">
+                    <i data-lucide="user"></i> <span>Perfil</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL DA TELA -->
+    <main class="main-content">
+        <!-- CABEÇALHO -->
+        <div>
+            <h1 style="font-family: 'Syne', sans-serif; font-size: 2rem; color: #fff;">Planeamento & Metas</h1>
+            <p style="color: #94a3b8; font-size: 0.95rem; margin-top: 0.3rem;">Define os teus objetivos, acompanha o progresso relativo e analisa as tuas projeções corporais.</p>
+        </div>
+
+        <!-- GRID PRINCIPAL -->
+        <div class="planos-grid">
+            
+            <!-- FORMULÁRIO DE ENTRADA -->
+            <div class="planos-card">
+                <h3 style="font-family: 'Syne', sans-serif; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; color: #fff;">
+                    <i data-lucide="target" style="color: #00ff87;"></i> Definição do Plano
+                </h3>
+
+                <form id="goalForm">
+                    <div style="margin-bottom: 1rem;">
+                        <label style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 0.4rem;">Peso Inicial (kg)</label>
+                        <input type="number" step="0.1" id="initialWeightInput" required class="planos-input">
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 0.4rem;">Peso Atual (kg)</label>
+                        <input type="number" step="0.1" id="currentWeightInput" required class="planos-input">
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 0.4rem;">Meta de Peso (kg)</label>
+                        <input type="number" step="0.1" id="targetWeightInput" required class="planos-input">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 0.4rem;">Ritmo Desejado</label>
+                        <select id="paceSelect" class="planos-input">
+                            <option value="0.5">Moderado (~0.5 kg / semana)</option>
+                            <option value="0.8" selected>Recomendado (~0.8 kg / semana)</option>
+                            <option value="1.0">Acelerado (~1.0 kg / semana)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="planos-btn">
+                        <i data-lucide="refresh-cw"></i> Recalcular Plano
+                    </button>
+                </form>
+            </div>
+
+            <!-- DASHBOARD DE PROGRESSO & CARDS -->
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <div class="planos-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <span style="color: #94a3b8; font-size: 0.9rem;">Conclusão do Objetivo</span>
+                        <span id="progressPercentText" style="font-family: 'Space Grotesk', monospace; font-weight: 700; font-size: 1.4rem; color: #00ff87;">0%</span>
+                    </div>
+
+                    <div class="macro-progress">
+                        <div class="macro-bar" id="progressBar" style="width: 0%; background: linear-gradient(90deg, #00e5ff, #00ff87);"></div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.85rem; color: #94a3b8;">
+                        <span>Inicial: <strong id="lblInitial" style="color:#fff;">0 kg</strong></span>
+                        <span>Atual: <strong id="lblCurrent" style="color:#fff;">0 kg</strong></span>
+                        <span>Meta: <strong id="lblTarget" style="color:#00ff87;">0 kg</strong></span>
+                    </div>
+                </div>
+
+                <div class="meta-resumo-bar">
+                    <div class="macro-card">
+                        <span style="color: #94a3b8; font-size: 0.8rem;">Diferença Restante</span>
+                        <h3 id="remainingKgText" style="font-family: 'Space Grotesk', monospace; font-size: 1.4rem; margin-top: 0.2rem; color: #ffbd2e;">0.0 kg</h3>
+                    </div>
+                    <div class="macro-card">
+                        <span style="color: #94a3b8; font-size: 0.8rem;">Estimativa de Tempo</span>
+                        <h3 id="estimatedWeeksText" style="font-family: 'Space Grotesk', monospace; font-size: 1.4rem; margin-top: 0.2rem; color: #00e5ff;">0 Semanas</h3>
+                    </div>
+                    <div class="macro-card">
+                        <span style="color: #94a3b8; font-size: 0.8rem;">Ajuste Diário</span>
+                        <h3 id="dailyCalorieKcalText" style="font-family: 'Space Grotesk', monospace; font-size: 1.4rem; margin-top: 0.2rem; color: #ff3366;">0 kcal/dia</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CURIOSIDADES & COMPARATIVO -->
+        <div style="margin-top: 1.5rem;" class="planos-card">
+            <h3 style="font-family: 'Syne', sans-serif; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; color: #fff;">
+                <i data-lucide="sparkles" style="color: #ffbd2e;"></i> Representação do Teu Progresso
+            </h3>
+            <p id="funComparisonText" style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+                Insere e recalcula os teus dados para ver a equivalência real do teu avanço...
+            </p>
+        </div>
+
+        <!-- TABELA DE PROJEÇÃO SEMANAL -->
+        <div style="margin-top: 1.5rem;" class="planos-card">
+            <h3 style="font-family: 'Syne', sans-serif; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: #fff;">
+                <i data-lucide="calendar" style="color: #00e5ff;"></i> Projeção Semanal de Evolução
+            </h3>
+            <div style="overflow-x: auto;">
+                <table class="planos-table">
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Data Prevista</th>
+                            <th>Peso Estimado</th>
+                            <th>Variação Acumulada</th>
+                            <th>Estatuto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projectionTableBody">
+                        <!-- Gerado por JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPTS INTEGRADOS -->
+    <script src="planos.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e14">
+  <meta name="description" content="Crie sua conta Body Fit.">
+  <title>Criar conta | Body Fit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cyber-theme.css">
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="cadastro.css">
+</head>
+<body class="register-page" data-page="register">
+  <section class="auth-shell">
+    <aside class="auth-story">
+      <a class="brand" href="index.html" aria-label="Body Fit">
+        <span class="brand-logo-frame"><img class="brand-logo" src="img/bodyfit2-removebg-preview.png" alt="Body Fit"></span>
+      </a>
+      <div class="story-copy">
+        <div class="eyebrow">Treino e nutrição, juntos</div>
+        <h1>Consistência que você consegue enxergar.</h1>
+        <p>Entenda como sua rotina se conecta. Registre, acompanhe e ajuste com clareza.</p>
+      </div>
+      <div class="story-foot">Um passo de cada vez. Dados seus, decisões melhores.</div>
+    </aside>
+
+    <section class="auth-panel">
+      <div class="auth-form-wrap">
+        <h2>Comece por aqui.</h2>
+        <p class="auth-sub">Crie sua conta e monte uma rotina que funciona para você.</p>
+        
+        <div class="auth-tabs">
+          <a href="login.html" class="auth-tab">Entrar</a>
+          <a href="cadastro.html" class="auth-tab active">Criar conta</a>
+        </div>
+
+        <form id="auth-form" class="register-form">
+          <div class="field">
+            <label for="auth-name">Seu nome</label>
+            <input id="auth-name" name="name" autocomplete="name" placeholder="Como podemos chamar você?" required maxlength="60">
+          </div>
+          <div class="field">
+            <label for="auth-email">E-mail</label>
+            <input id="auth-email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
+          </div>
+          <div class="field">
+            <label for="auth-password">Senha</label>
+            <input id="auth-password" name="password" type="password" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+          </div>
+          <button class="btn btn-primary" type="submit">Criar minha conta <span aria-hidden="true">→</span></button>
+          <p class="auth-error" id="auth-error" role="alert" aria-live="polite"></p>
+        </form>
+
+        <a href="demo.html" class="demo-button register-demo-link">Explorar demonstração</a>
+      </div>
+    </section>
+  </section>
+  <script src="firebase-config.js"></script>
+  <script type="module" src="cadastro.js"></script>
+</body>
+</html>

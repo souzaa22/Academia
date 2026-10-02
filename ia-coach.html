@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Fit - Cyber Nutri-Coach IA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Arquivos de Estilo Locais (se existirem) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cyber-theme.css">
+    <link rel="stylesheet" href="ia-coach.css">
+</head>
+<body>
+
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="home.html" aria-label="Body Fit">
+                <span class="brand-logo-frame"><img class="brand-logo" src="img/bodyfit2-removebg-preview.png" alt="Body Fit"></span>
+            </a>
+            <div class="side-label">Sua rotina</div>
+            <nav class="nav-list" aria-label="Navegação principal">
+                <a class="nav-item" href="home.html"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+                <a class="nav-item" href="treinos.html"><span class="nav-icon">↗</span><span>Treinos</span></a>
+                <a class="nav-item" href="alimentacao.html"><span class="nav-icon">◒</span><span>Alimentação</span></a>
+                <a class="nav-item active" href="ia-coach.html" aria-current="page"><span class="nav-icon">✦</span><span>IA</span></a>
+                <a class="nav-item" href="evolucao.html"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+                <a class="nav-item" href="perfil.html"><span class="nav-icon">◎</span><span>Perfil</span></a>
+            </nav>
+        </aside>
+        <section class="main-area">
+            <header class="topbar">
+                <div class="topbar-date">Cyber Nutri-Coach</div>
+                <div class="topbar-right"><span class="sync-indicator"><i class="sync-dot"></i>Assistente online</span></div>
+            </header>
+            <main class="page-content">
+    <div class="ia-coach-container">
+        <!-- CABEÇALHO -->
+        <div>
+            <h1 style="font-family: 'Syne', sans-serif; font-size: 2rem; color: #fff; display: flex; align-items: center; gap: 0.8rem;">
+                <i data-lucide="bot" style="color: #00e5ff; width: 32px; height: 32px;"></i> Cyber Nutri-Coach IA
+            </h1>
+            <p style="color: #94a3b8; font-size: 0.95rem; margin-top: 0.3rem;">Assistente inteligente para análise visual de pratos, substituições e suporte nutricional.</p>
+        </div>
+
+        <!-- GRID EM 2 COLUNAS -->
+        <div class="ia-grid">
+            
+            <!-- COLUNA ESQUERDA: VISÃO COMPUTACIONAL & SUBSTITUIÇÃO -->
+            <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                
+                <!-- CARD 1: VISÃO DE IA -->
+                <div class="ia-card">
+                    <h3 style="font-family: 'Syne', sans-serif; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; color: #00e5ff; font-size: 1.1rem;">
+                        <i data-lucide="scan"></i> Análise de Foto por Visão
+                    </h3>
+                    <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem;">Carregue a foto do seu prato para estimar calorias e macros.</p>
+
+                    <div class="upload-dropzone" onclick="document.getElementById('plateImgInput').click()">
+                        <i data-lucide="camera" style="width: 28px; height: 28px; color: #00e5ff; margin-bottom: 0.4rem;"></i>
+                        <span id="uploadStatusText" style="font-size: 0.85rem; color: #e2e8f0;">Clique para enviar a foto do prato</span>
+                        <input type="file" id="plateImgInput" accept="image/*" style="display: none;" onchange="handlePlateImageUpload(event)">
+                    </div>
+
+                    <div id="aiScanPreview" style="display: none; margin-top: 1rem; text-align: center;">
+                        <img id="scannedImg" src="" style="width: 100%; max-height: 160px; object-fit: cover; border-radius: 12px; margin-bottom: 0.8rem; border: 1px solid rgba(0, 255, 135, 0.3);">
+                        <button onclick="analyzePlateWithAI()" id="btnAnalyzePlate" class="ia-btn-primary">
+                            <i data-lucide="sparkles"></i> Analisar Prato com IA
+                        </button>
+                    </div>
+
+                    <div id="scanResultBox" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(11, 14, 20, 0.9); border-radius: 12px; border: 1px solid rgba(0, 229, 255, 0.3);">
+                        <!-- Gerado por JS -->
+                    </div>
+                </div>
+
+                <!-- CARD 2: SUBSTITUIÇÃO EQUIVALENTE -->
+                <div class="ia-card">
+                    <h3 style="font-family: 'Syne', sans-serif; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; color: #ffbd2e; font-size: 1.1rem;">
+                        <i data-lucide="arrow-right-left"></i> Substituição Equivalente
+                    </h3>
+                    
+                    <div style="margin-bottom: 0.8rem;">
+                        <label style="font-size: 0.8rem; color: #94a3b8; display: block; margin-bottom: 0.3rem;">Alimento Original</label>
+                        <select id="substOriginalSelect" class="ia-input">
+                            <option value="frango">Peito de Frango (100g)</option>
+                            <option value="arroz">Arroz Branco (100g)</option>
+                            <option value="ovo">Ovo Cozido (1un / 50g)</option>
+                            <option value="batata">Batata Doce (100g)</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="font-size: 0.8rem; color: #94a3b8; display: block; margin-bottom: 0.3rem;">Quero Substituir Por</label>
+                        <select id="substTargetSelect" class="ia-input">
+                            <option value="patinho">Carne Moída Patinho</option>
+                            <option value="tilapia">Filé de Tilápia</option>
+                            <option value="mandioca">Mandioca Cozida</option>
+                            <option value="aveia">Farinha de Aveia</option>
+                        </select>
+                    </div>
+
+                    <button onclick="calculateSubstitution()" class="ia-btn-secondary">
+                        <i data-lucide="calculator"></i> Calcular Proporção Exata
+                    </button>
+
+                    <div id="substResultText" style="margin-top: 1rem; font-size: 0.85rem; color: #00e5ff; background: rgba(0,255,135,0.08); padding: 0.8rem; border-radius: 10px; border: 1px solid rgba(0,255,135,0.2); display: none;">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLUNA DIREITA: CHAT DA IA -->
+            <div class="ia-card" style="display: flex; flex-direction: column; height: 620px;">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+                    <div style="display: flex; align-items: center; gap: 0.6rem;">
+                        <div style="width: 10px; height: 10px; background: #00e5ff; border-radius: 50%; box-shadow: 0 0 10px #00e5ff;"></div>
+                        <strong style="color: #fff; font-size: 0.95rem;">Cyber-Coach v2.4 (Online)</strong>
+                    </div>
+                    <button onclick="clearChatHistory()" style="background: transparent; border: none; color: #94a3b8; cursor: pointer; font-size: 0.8rem;" title="Limpar conversa">
+                        <i data-lucide="trash-2" style="width: 16px;"></i>
+                    </button>
+                </div>
+
+                <!-- ÁREA DE MENSAGENS -->
+                <div id="chatMessagesBox" class="chat-messages-container">
+                    <div class="chat-msg ai-msg">
+                        <div class="msg-author">Cyber-Coach IA</div>
+                        Olá! Sou o teu Nutri-Coach do Body Fit. Como posso ajudar com a tua alimentação ou plano de treinos hoje?
+                    </div>
+                </div>
+
+                <!-- PERGUNTAS RÁPIDAS -->
+                <div class="quick-prompts-bar">
+                    <button class="quick-btn" onclick="sendQuickPrompt('O que devo comer no pré-treino para ter mais energia?')">⚡ Pré-Treino</button>
+                    <button class="quick-btn" onclick="sendQuickPrompt('Análise rápida: como bater a minha meta de proteínas hoje?')">🍗 Meta Proteica</button>
+                    <button class="quick-btn" onclick="sendQuickPrompt('Como reduzir o inchaço abdominal mantendo a dieta?')">💧 Inchaço</button>
+                </div>
+
+                <!-- CAMPO DE MENSAGEM -->
+                <!-- CAMPO DE MENSAGEM DO CHAT (SEM FORM) -->
+<div class="chat-input-row">
+    <input 
+        type="text" 
+        id="chatInput" 
+        placeholder="Pergunta algo à IA..." 
+        autocomplete="off" 
+        class="ia-input" 
+        style="flex-grow: 1;"
+        onkeydown="if(event.key === 'Enter') handleSendChatMessage()"
+    >
+    <button 
+        type="button" 
+        onclick="handleSendChatMessage()" 
+        class="ia-btn-primary" 
+        style="width: auto; padding: 0 1.2rem;"
+    >
+        <i data-lucide="send"></i>
+    </button>
+</div>
+
+            </div>
+
+        </div>
+    </div>
+            </main>
+        </section>
+        <nav class="mobile-nav" aria-label="Navegação móvel">
+            <a class="nav-item" href="home.html" aria-label="Visão geral"><span class="nav-icon">⌂</span><span>Início</span></a>
+            <a class="nav-item" href="treinos.html" aria-label="Treinos"><span class="nav-icon">↗</span><span>Treinos</span></a>
+            <a class="nav-item" href="alimentacao.html" aria-label="Alimentação"><span class="nav-icon">◒</span><span>Dieta</span></a>
+            <a class="nav-item active" href="ia-coach.html" aria-label="IA" aria-current="page"><span class="nav-icon">✦</span><span>IA</span></a>
+            <a class="nav-item" href="evolucao.html" aria-label="Evolução"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+            <a class="nav-item" href="perfil.html" aria-label="Perfil"><span class="nav-icon">◎</span><span>Perfil</span></a>
+        </nav>
+    </div>
+
+    <!-- SCRIPTS INTEGRADOS -->
+    <script src="ia-coach.js"></script>
+</body>
+</html>

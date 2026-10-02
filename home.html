@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e14">
+  <meta name="description" content="Painel de treino, alimentação e evolução Body Fit.">
+  <title>Painel | Body Fit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cyber-theme.css">
+  <link rel="stylesheet" href="charts.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body data-page="home">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html" aria-label="Body Fit">
+        <span class="brand-logo-frame"><img class="brand-logo" src="img/bodyfit2-removebg-preview.png" alt="Body Fit"></span>
+      </a>
+      <div class="side-label">Sua rotina</div>
+      <nav class="nav-list" aria-label="Navegação principal">
+        <a href="home.html" class="nav-item active"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="treinos.html" class="nav-item"><span class="nav-icon">↗</span><span>Treinos</span></a>
+        <a href="alimentacao.html" class="nav-item"><span class="nav-icon">◒</span><span>Alimentação</span></a>
+        <a href="ia-coach.html" class="nav-item"><span class="nav-icon">✦</span><span>IA</span></a>
+        <a href="evolucao.html" class="nav-item"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+        <a href="perfil.html" class="nav-item"><span class="nav-icon">◎</span><span>Perfil</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-mini">
+          <div class="avatar">A</div>
+          <div style="min-width:0">
+            <div class="user-name">Atleta</div>
+            <div class="user-mode">Conta conectada</div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-item"><span class="nav-icon">↪</span><span>Sair da conta</span></a>
+      </div>
+    </aside>
+
+    <section class="main-area">
+      <header class="topbar">
+        <div class="topbar-date">Visão Geral do Utilizador</div>
+        <div class="topbar-right">
+          <span class="sync-indicator"><i class="sync-dot"></i>Sincronizado</span>
+          <a href="login.html" class="btn btn-quiet">Sair</a>
+        </div>
+      </header>
+      <main class="page-content">
+        <div class="page-heading">
+          <div>
+            <h1>Visão geral</h1>
+            <p>Seu panorama de hoje, sem perder de vista o conjunto.</p>
+          </div>
+          <div class="heading-actions">
+            <a href="treinos.html" class="btn">＋ Registrar treino</a>
+          </div>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="stat">
+            <div class="stat-label">Consumido hoje</div>
+            <div class="stat-value stat-accent">2100 <small>kcal</small></div>
+            <div class="stat-note">Meta atingida</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Treino estimado</div>
+            <div class="stat-value">450 <small>kcal</small></div>
+            <div class="stat-note">estimativa a partir da atividade</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Peso atual</div>
+            <div class="stat-value">70.0 <small>kg</small></div>
+            <div class="stat-note">meta: 68.0 kg</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Treinos registrados</div>
+            <div class="stat-value">12</div>
+            <div class="stat-note">sessões no total</div>
+          </div>
+        </div>
+
+        <div class="overview-grid">
+          <section class="panel">
+            <div class="panel-head"><div><h2>Volume de treino</h2><p>Volume por dia nesta semana</p></div></div>
+            <div class="chart-wrap"><div class="chart-empty">Adicione registros para visualizar seu histórico.</div></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>Calorias consumidas</h2><p>Consumo diário e meta calórica</p></div></div>
+            <div class="chart-wrap"><div class="chart-empty">Adicione registros para visualizar seu histórico.</div></div>
+          </section>
+        </div>
+
+        <div class="overview-grid">
+          <section class="panel">
+            <div class="panel-head"><div><h2>O que seus dados contam</h2></div></div>
+            <div class="insight-card">
+              <div class="insight-kicker">Insight · treino + alimentação</div>
+              <p class="insight-text">Registre refeições e treinos para descobrir como seus hábitos se relacionam.</p>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <div><h2>Atividade recente</h2></div>
+              <a href="treinos.html" class="panel-link">Ver treinos →</a>
+            </div>
+            <div class="list">
+              <div class="empty-state">Suas sessões registradas aparecem aqui.</div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </section>
+
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+      <a href="home.html" class="nav-item active"><span class="nav-icon">⌂</span><span>Início</span></a>
+      <a href="treinos.html" class="nav-item"><span class="nav-icon">↗</span><span>Treinos</span></a>
+      <a href="alimentacao.html" class="nav-item"><span class="nav-icon">◒</span><span>Dieta</span></a>
+      <a href="ia-coach.html" class="nav-item"><span class="nav-icon">✦</span><span>IA</span></a>
+      <a href="evolucao.html" class="nav-item"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+      <a href="perfil.html" class="nav-item"><span class="nav-icon">◎</span><span>Perfil</span></a>
+    </nav>
+  </div>
+</body>
+</html>

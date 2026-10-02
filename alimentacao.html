@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#20392b">
+  <meta name="description" content="Alimentação e balanço calórico no Body Fit.">
+  <title>Alimentação | Body Fit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cyber-theme.css">
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="charts.css">
+  <link rel="stylesheet" href="alimentacao.css">
+</head>
+<body data-page="diet">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html" aria-label="Body Fit">
+        <span class="brand-logo-frame"><img class="brand-logo" src="img/bodyfit2-removebg-preview.png" alt="Body Fit"></span>
+      </a>
+      <div class="side-label">Sua rotina</div>
+      <nav class="nav-list" aria-label="Navegação principal">
+        <a href="home.html" class="nav-item"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="treinos.html" class="nav-item"><span class="nav-icon">↗</span><span>Treinos</span></a>
+        <a href="alimentacao.html" class="nav-item active"><span class="nav-icon">◒</span><span>Alimentação</span></a>
+        <a href="ia-coach.html" class="nav-item"><span class="nav-icon">✦</span><span>IA</span></a>
+        <a href="evolucao.html" class="nav-item"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+        <a href="perfil.html" class="nav-item"><span class="nav-icon">◎</span><span>Perfil</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-mini">
+          <div class="avatar">A</div>
+          <div style="min-width:0">
+            <div class="user-name">Atleta</div>
+            <div class="user-mode">Conta conectada</div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-item"><span class="nav-icon">↪</span><span>Sair da conta</span></a>
+      </div>
+    </aside>
+
+    <section class="main-area">
+      <header class="topbar">
+        <div class="topbar-date">Controlo Nutricional Diário</div>
+        <div class="topbar-right">
+          <span class="sync-indicator"><i class="sync-dot"></i>Sincronizado</span>
+          <a href="login.html" class="btn btn-quiet">Sair</a>
+        </div>
+      </header>
+      <main class="page-content">
+        <div class="page-heading">
+          <div>
+            <h1>Alimentação</h1>
+            <p>Seu consumo diário, com o treino na mesma conta.</p>
+          </div>
+          <div class="heading-actions">
+            <a href="#meal-form" class="btn">＋ Registrar refeição</a>
+          </div>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="stat">
+            <div class="stat-label">Consumido hoje</div>
+            <div class="stat-value">1650 <small>kcal</small></div>
+            <div class="stat-note">3 itens registrados</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Meta diária</div>
+            <div class="stat-value">2100 <small>kcal</small></div>
+            <div class="stat-note">definida no seu perfil</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Gasto estimado no treino</div>
+            <div class="stat-value">350 <small>kcal</small></div>
+            <div class="stat-note">força / cardio</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Saldo após treino</div>
+            <div class="stat-value stat-accent">1300 <small>kcal</small></div>
+            <div class="stat-note"><span class="badge">800 kcal restantes</span></div>
+          </div>
+        </div>
+
+        <div style="height:15px"></div>
+
+        <div class="grid grid-2">
+          <section class="panel">
+            <div class="panel-head"><div><h2>Consumo e meta</h2><p>Calorias de refeições registradas por dia</p></div></div>
+            <div class="chart-wrap"><div class="chart-empty">Adicione registros para visualizar seu histórico.</div></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>Refeições de hoje</h2></div></div>
+            <div class="list">
+              <div class="list-row">
+                <div class="row-main">
+                  <div class="row-title">Ovo mexido e Aveia</div>
+                  <div class="row-meta">Café da manhã · 150 g</div>
+                </div>
+                <div class="row-value">450 kcal</div>
+              </div>
+              <div class="list-row">
+                <div class="row-main">
+                  <div class="row-title">Peito de frango com arroz</div>
+                  <div class="row-meta">Almoço · 350 g</div>
+                </div>
+                <div class="row-value">650 kcal</div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div style="height:15px"></div>
+
+        <div class="grid grid-2">
+          <section class="inline-form">
+            <div class="panel-head"><div><h2>Cadastrar alimento</h2></div></div>
+            <form id="food-form" action="#" onsubmit="return false;">
+              <div class="form-grid">
+                <div class="field"><label for="food-name">Nome do alimento</label><input id="food-name" name="name" type="text" placeholder="Ex.: arroz cozido" required></div>
+                <div class="field"><label for="food-calories">Calorias / 100 g</label><input id="food-calories" name="calories" type="number" step=".1" required></div>
+                <div class="field"><label for="food-protein">Proteínas (g)</label><input id="food-protein" name="protein" type="number" step=".1" required></div>
+                <div class="field"><label for="food-carbs">Carboidratos (g)</label><input id="food-carbs" name="carbs" type="number" step=".1" required></div>
+                <div class="field"><label for="food-fat">Gorduras (g)</label><input id="food-fat" name="fat" type="number" step=".1" required></div>
+              </div>
+              <div class="form-actions"><button class="btn" type="submit">Salvar alimento</button></div>
+            </form>
+          </section>
+
+          <section class="inline-form" id="meal-form">
+            <div class="panel-head"><div><h2>Registrar refeição</h2></div></div>
+            <form id="meal-form-data" action="#" onsubmit="return false;">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="meal-type">Refeição</label>
+                  <select id="meal-type" name="meal" required>
+                    <option value="Café da manhã">Café da manhã</option>
+                    <option value="Almoço">Almoço</option>
+                    <option value="Lanche">Lanche</option>
+                    <option value="Jantar">Jantar</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="meal-food">Alimento</label>
+                  <select id="meal-food" name="foodId" required>
+                    <option value="f1">Aveia · 389 kcal/100g</option>
+                    <option value="f2">Ovo · 143 kcal/100g</option>
+                    <option value="f3">Peito de frango · 165 kcal/100g</option>
+                  </select>
+                </div>
+                <div class="field"><label for="meal-amount">Quantidade (g)</label><input id="meal-amount" name="amount" type="number" step=".1" required></div>
+                <div class="field"><label for="meal-date">Data</label><input id="meal-date" name="date" type="date" required></div>
+              </div>
+              <div class="form-actions"><button class="btn" type="submit">Adicionar ao dia</button></div>
+            </form>
+          </section>
+        </div>
+
+        <section class="panel" style="margin-top:15px;">
+          <div class="panel-head"><div><h2>Alimentos cadastrados</h2></div></div>
+          <div class="list">
+            <div class="list-row">
+              <div class="row-main">
+                <div class="row-title">Aveia</div>
+                <div class="row-meta">P 16.9 g · C 66.3 g · G 6.9 g por 100 g</div>
+              </div>
+              <div class="row-value">389 kcal</div>
+            </div>
+            <div class="list-row">
+              <div class="row-main">
+                <div class="row-title">Ovo</div>
+                <div class="row-meta">P 13 g · C 1.1 g · G 9.5 g por 100 g</div>
+              </div>
+              <div class="row-value">143 kcal</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+      <a href="home.html" class="nav-item"><span class="nav-icon">⌂</span><span>Início</span></a>
+      <a href="treinos.html" class="nav-item"><span class="nav-icon">↗</span><span>Treinos</span></a>
+      <a href="alimentacao.html" class="nav-item active"><span class="nav-icon">◒</span><span>Dieta</span></a>
+      <a href="ia-coach.html" class="nav-item"><span class="nav-icon">✦</span><span>IA</span></a>
+      <a href="evolucao.html" class="nav-item"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+      <a href="perfil.html" class="nav-item"><span class="nav-icon">◎</span><span>Perfil</span></a>
+    </nav>
+  </div>
+</body>
+</html>

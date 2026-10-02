@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#20392b">
+  <meta name="description" content="Acompanhe sua evolução corporal no Body Fit.">
+  <title>Evolução | Body Fit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cyber-theme.css">
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="charts.css">
+  <link rel="stylesheet" href="evolucao.css">
+</head>
+<body data-page="progress">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html" aria-label="Body Fit">
+        <span class="brand-logo-frame"><img class="brand-logo" src="img/bodyfit2-removebg-preview.png" alt="Body Fit"></span>
+      </a>
+      <div class="side-label">Sua rotina</div>
+      <nav class="nav-list" aria-label="Navegação principal">
+        <a href="home.html" class="nav-item"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="treinos.html" class="nav-item"><span class="nav-icon">↗</span><span>Treinos</span></a>
+        <a href="alimentacao.html" class="nav-item"><span class="nav-icon">◒</span><span>Alimentação</span></a>
+        <a href="ia-coach.html" class="nav-item"><span class="nav-icon">✦</span><span>IA</span></a>
+        <a href="evolucao.html" class="nav-item active"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+        <a href="perfil.html" class="nav-item"><span class="nav-icon">◎</span><span>Perfil</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-mini">
+          <div class="avatar">A</div>
+          <div style="min-width:0">
+            <div class="user-name">Atleta</div>
+            <div class="user-mode">Conta conectada</div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-item"><span class="nav-icon">↪</span><span>Sair da conta</span></a>
+      </div>
+    </aside>
+
+    <section class="main-area">
+      <header class="topbar">
+        <div class="topbar-date">Acompanhamento Corporal</div>
+        <div class="topbar-right">
+          <span class="sync-indicator"><i class="sync-dot"></i>Sincronizado</span>
+          <a href="login.html" class="btn btn-quiet">Sair</a>
+        </div>
+      </header>
+      <main class="page-content">
+        <div class="page-heading">
+          <div>
+            <h1>Evolução</h1>
+            <p>Pequenas medições mostram tendências que o dia a dia esconde.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="stat">
+            <div class="stat-label">Peso mais recente</div>
+            <div class="stat-value">72.4 <small>kg</small></div>
+            <div class="stat-note">Registrado recentemente</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Meta de peso</div>
+            <div class="stat-value">68.0 <small>kg</small></div>
+            <div class="stat-note">definida no perfil</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Variação registrada</div>
+            <div class="stat-value stat-accent">-0.7 <small>kg</small></div>
+            <div class="stat-note">Últimos 30 dias</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Sessões de treino</div>
+            <div class="stat-value">6</div>
+            <div class="stat-note">relacionadas aos seus registros</div>
+          </div>
+        </div>
+
+        <div style="height:15px"></div>
+
+        <div class="grid grid-2">
+          <section class="panel">
+            <div class="panel-head"><div><h2>Peso corporal</h2><p>Medições registradas ao longo do tempo</p></div></div>
+            <div class="chart-wrap"><div class="chart-empty">Adicione registros para visualizar seu histórico.</div></div>
+          </section>
+
+          <section class="inline-form">
+            <div class="panel-head"><div><h2>Registrar peso</h2></div></div>
+            <form id="weight-form" action="#">
+              <div class="form-grid">
+                <div class="field"><label for="weight-input">Peso (kg)</label><input id="weight-input" name="weight" type="number" step=".1" required></div>
+                <div class="field"><label for="weight-date">Data</label><input id="weight-date" name="date" type="date" required></div>
+              </div>
+              <div class="form-actions"><button class="btn" type="submit">Salvar medição</button></div>
+            </form>
+          </section>
+        </div>
+
+        <section class="panel" style="margin-top:15px;">
+          <div class="panel-head"><div><h2>Histórico de peso</h2></div></div>
+          <div class="list" id="weight-history-list">
+            <div class="list-row">
+              <div class="row-main">
+                <div class="row-title">Medição Recente</div>
+                <div class="row-meta">Registrado via sistema</div>
+              </div>
+              <div class="row-value">72.4 kg</div>
+            </div>
+            <div class="list-row">
+              <div class="row-main">
+                <div class="row-title">Medição Anterior</div>
+                <div class="row-meta">Registrado via sistema</div>
+              </div>
+              <div class="row-value">73.1 kg</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+      <a href="home.html" class="nav-item"><span class="nav-icon">⌂</span><span>Início</span></a>
+      <a href="treinos.html" class="nav-item"><span class="nav-icon">↗</span><span>Treinos</span></a>
+      <a href="alimentacao.html" class="nav-item"><span class="nav-icon">◒</span><span>Dieta</span></a>
+      <a href="ia-coach.html" class="nav-item"><span class="nav-icon">✦</span><span>IA</span></a>
+      <a href="evolucao.html" class="nav-item active"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+      <a href="perfil.html" class="nav-item"><span class="nav-icon">◎</span><span>Perfil</span></a>
+    </nav>
+  </div>
+
+  <!-- Carregamento correto do script como MÓDULO -->
+  <script type="module" src="evolucao.js"></script>
+</body>
+</html>

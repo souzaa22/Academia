@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#20392b">
+  <meta name="description" content="Exercícios, treinos e progressão no Body Fit.">
+  <title>Treinos | Body Fit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cyber-theme.css">
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="charts.css">
+  <link rel="stylesheet" href="treinos.css">
+</head>
+<body data-page="training">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html" aria-label="Body Fit">
+        <span class="brand-logo-frame"><img class="brand-logo" src="img/bodyfit2-removebg-preview.png" alt="Body Fit"></span>
+      </a>
+      <div class="side-label">Sua rotina</div>
+      <nav class="nav-list" aria-label="Navegação principal">
+        <a href="home.html" class="nav-item"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="treinos.html" class="nav-item active"><span class="nav-icon">↗</span><span>Treinos</span></a>
+        <a href="alimentacao.html" class="nav-item"><span class="nav-icon">◒</span><span>Alimentação</span></a>
+        <a href="ia-coach.html" class="nav-item"><span class="nav-icon">✦</span><span>IA</span></a>
+        <a href="evolucao.html" class="nav-item"><span class="nav-icon">⌁</span><span>Evolução</span></a>
+        <a href="perfil.html" class="nav-item"><span class="nav-icon">◎</span><span>Perfil</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-mini">
+          <div class="avatar">A</div>
+          <div style="min-width:0">
+            <div class="user-name">Atleta</div>
+            <div class="user-mode">Conta conectada</div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-item"><span class="nav-icon">↪</span><span>Sair da conta</span></a>
+      </div>
+    </aside>
+
+    <section class="main-area">
+      <header class="topbar">
+        <div class="topbar-date">Sessões de Treino</div>
+        <div class="topbar-right">
+          <span class="sync-indicator"><i class="sync-dot"></i>Sincronizado</span>
+          <a href="login.html" class="btn btn-quiet">Sair</a>
+        </div>
+      </header>
+      <main class="page-content">
+        <div class="page-heading">
+          <div>
+            <h1>Registo de Treino</h1>
+            <p>Acompanhe suas cargas, séries e volume total de treino.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <section class="inline-form">
+            <div class="panel-head"><div><h2>Registrar Treino</h2></div></div>
+            <form id="session-form">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="workout-name">Nome do Treino</label>
+                  <input id="workout-name" name="name" type="text" placeholder="Ex: Treino A - Peito e Tríceps" required>
+                </div>
+                <div class="field">
+                  <label for="workout-date">Data</label>
+                  <input id="workout-date" name="date" type="date" required>
+                </div>
+                <div class="field">
+                  <label for="workout-reps">Séries x Repetições</label>
+                  <input id="workout-reps" name="reps" type="text" placeholder="Ex: 4x10" required>
+                </div>
+                <div class="field">
+                  <label for="workout-weight">Carga Utilizada (kg)</label>
+                  <input id="workout-weight" name="weight" type="number" step="0.5" placeholder="Ex: 25" required>
+                </div>
+              </div>
+              <div class="form-actions" style="margin-top: 15px;">
+                <button class="btn" type="submit">Salvar Treino</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><div><h2>Histórico de Treinos</h2></div></div>
+            <div id="workout-history-list" class="list">
+              <div class="chart-empty">Nenhum treino registrado ainda.</div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <script src="treinos.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+.register-page .auth-form-wrap h2 { margin-bottom: 9px; }
+.register-form .field { margin-bottom: 16px; }
+.register-form .btn-primary { margin-top: 10px; }
+.register-form .auth-error:empty { min-height: 0; margin: 0; }
+.register-demo-link { text-align: center; }

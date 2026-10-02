@@ -1,0 +1,16 @@
+.modal-overlay { display: grid; place-items: center; padding: 1rem; background: rgba(2, 6, 10, .78); backdrop-filter: blur(12px); }
+.modal-overlay.is-open, .modal-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; }
+.modal-container { position: relative; width: min(100%, 440px); max-height: min(90vh, 760px); overflow-y: auto; padding: 2.5rem; border: 1px solid var(--border-glass); border-radius: 18px; background: #141a26; box-shadow: 0 20px 50px rgba(0, 0, 0, .8); animation: auth-modal-in .25s ease both; }
+@keyframes auth-modal-in { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.close-modal { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--border-glass); border-radius: 8px; color: var(--text-muted); background: transparent; cursor: pointer; }
+.close-modal:hover { border-color: var(--border-glow); color: var(--neon-green); }
+.auth-form { animation: auth-form-in .2s ease both; }
+@keyframes auth-form-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.error-message.is-visible { display: block; }
+.demo-entry { width: 100%; justify-content: center; margin-top: 1rem; }
+.bodyfit-logo { display: block; width: 150px; height: 42px; border-radius: 4px; background: transparent; object-fit: cover; object-position: center 51%; }
+body.modal-open { overflow: hidden; }
+@media (max-width: 520px) {
+  .modal-container { padding: 2.4rem 1.25rem 1.5rem; border-radius: 14px; }
+  .modal-title { font-size: 1.55rem; }
+}
